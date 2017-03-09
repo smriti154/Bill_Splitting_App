@@ -1,0 +1,23 @@
+<h1> Pay to your Friends!!</h1>
+<table class="table table-bordered" width= "200">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Pay</th>
+      <th>To</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |x| %>
+      <tr>
+        <td><%= x["from"] %></td>
+        <td><%= x["pay"] %></td>
+        <td><%= x["to"] %></td>
+      </tr>
+   <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Back to Home', root_path %>
+<%= link_to 'Back to bills', bills_path %></br></br></br>

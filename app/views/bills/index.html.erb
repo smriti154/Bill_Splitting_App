@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List of all the bills</h1>
+<table class="table table-bordered" width= "1000">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Bill date</th>
+      <th>Location</th>
+      <th>Total amount</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td><%= bill.event %></td>
+        <td><%= bill.bill_date %></td>
+        <td><%= bill.location %></td>
+        <td><%= bill.total_amount %></td>
+        <td><%= link_to "Enter your Shares!", new_payment_path(:bill_id => bill.id)%></td>
+        <td><%= link_to "Friends Shares!", payments_path(:bill_id => bill.id)%></td>
+        <td><%= link_to "Split it up!", split_path(:bill_id => bill.id)%></td>
+        <td><%= link_to 'Delete Bill', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+</div>
+</div>
+
+<%= link_to 'Add New Bill', new_bill_path %></br></br>
+<%= link_to 'Back to Home', root_path %>

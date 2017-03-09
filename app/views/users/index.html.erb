@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Your Added Friends!</h2>
+
+<table class="table table-bordered" style="width:20%">
+  <thead>
+    <tr>
+      <th>Friend Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br></br>
+<%= link_to 'Add New Friend', new_user_path %></br></br>
+<%= link_to 'Back to Home', root_path %>
+

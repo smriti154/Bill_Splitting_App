@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shares Paid by your Friends</h1>
+
+<table>
+  <thead width="100">
+    <tr>
+      <th>User Name</th>
+      <th>Paid amount</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |x| %>
+      <tr>
+        <td><%= x["user_name"] %></td>
+        <td><%= x["paid_amount"] %></td>
+        <td><%= link_to 'Edit', edit_payment_path(x["id"]) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<input value= <%= params[:bill_id] %> name="payment[bill_id]" id="payment_bill_id" type="hidden">
+<%= link_to 'Back to bills', bills_path %></br></br></br>
+
+
