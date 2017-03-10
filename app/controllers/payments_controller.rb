@@ -83,7 +83,9 @@ class PaymentsController < ApplicationController
     @results_set.each do |x|
         payer_user_name = User.find_by_id(x["from"]).name
         receiver_user_name = User.find_by_id(x["to"]).name
-        @results << {"from" => payer_user_name, "pay" => x["pay"], "to" => receiver_user_name} 
+        if x["pay"] != 0
+          @results << {"from" => payer_user_name, "pay" => x["pay"], "to" => receiver_user_name} 
+        end
       end
   end
 
