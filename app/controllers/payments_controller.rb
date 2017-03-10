@@ -70,7 +70,7 @@ class PaymentsController < ApplicationController
             @new_creditor_hash[u] = v - y
             @creditor_hash.delete(u)
             @creditor_hash = @new_creditor_hash.merge(@creditor_hash)
-            @results_set << {"from" => u, "pay" => y, "to" => x}
+            @results_set << {"from" => x, "pay" => y, "to" => u}
             @debtor_hash.delete(x)
           end    
         end
